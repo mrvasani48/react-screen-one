@@ -1,18 +1,38 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import profileImg from "../assets/image/profile.png";
-import { Avatar, Typography, Stack } from "@mui/material";
-import Button from "@mui/joy/Button";
+import { Avatar, Typography, Stack, Button } from "@mui/joy";
 
-const PhotoUpload = () => {
+function PhotoUpload() {
+  const [uploadedImg, setUploadedImg] = useState();
+  const fileRef = useRef();
+  const imageReg = /[.](jpg|jpeg|png)$/i;
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    fileRef.current.click();
+  };
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    if (event.target.files[0].name.search(imageReg) > 0) {
+      if (event.target.files[0].size / 1048576 < 5) {
+        setUploadedImg(event.target.files[0]);
+      } else {
+        alert("your image size too big!");
+      }
+    } else {
+      alert("please select image");
+    }
+  };
   return (
     <Stack
       sx={{
         border: "2px solid #3e445f",
         borderRadius: "30px",
-        maxWidth:"480px",
-        display:"flex",
-        justifyContent:"center"
+        maxWidth: "480px",
+        display: "flex",
+        justifyContent: "center",
       }}
     >
       <Stack
@@ -24,13 +44,20 @@ const PhotoUpload = () => {
           position: "relative",
         }}
       >
+        <input
+          type="file"
+          ref={fileRef}
+          onChange={handleChange}
+          accept="image/png, image/jpeg , image/jpg"
+          style={{ display: "none" }}
+        />
         <Avatar
           sx={{
             width: 250,
             height: 250,
             borderRadius: "50%",
           }}
-          src={profileImg}
+          src={uploadedImg ? URL.createObjectURL(uploadedImg) : profileImg}
           alt="profile-img"
         />
         <Button
@@ -45,9 +72,7 @@ const PhotoUpload = () => {
             color: "#3c467f",
             fontSize: "46px",
           }}
-          onClick={() => {
-            console.log("upload-img");
-          }}
+          onClick={handleClick}
         >
           <AddIcon />
         </Button>
@@ -64,6 +89,6 @@ const PhotoUpload = () => {
       </Typography>
     </Stack>
   );
-};
+}
 
 export default PhotoUpload;

@@ -1,248 +1,108 @@
 import React from "react";
-import Select from "@mui/joy/Select";
-import Option from "@mui/joy/Option";
-import { Grid, Stack } from "@mui/joy";
-import Textarea from "@mui/joy/Textarea";
-import Typography from "@mui/joy/Typography";
-import SaveAsIcon from "@mui/icons-material/SaveAs";
+import { Grid, Stack, Typography, Textarea, Button, Checkbox } from "@mui/joy";
 
+import SaveAsIcon from "@mui/icons-material/SaveAs";
+import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import SaveIcon from "@mui/icons-material/Save";
+import DeleteIcon from "@mui/icons-material/Delete";
+import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
 import PhotoUpload from "../components/PhotoUpload";
 import UploadDocument from "../components/common/UploadDocument";
-import InputComponent from "../components/common/InputComponent";
+import EditText from "../components/common/EditText";
+import Heading from "../components/common/Heading";
+import InputSelect from "../components/common/InputSelect";
 
-const Home = () => {
+function Home() {
   return (
     <Grid container={true} margin="30px" spacing="40px">
-      <Grid xs={12} sm={12}>
-        <Typography
-          variant="p"
-          component="p"
-          fontSize="30px"
-          sx={{ color: "black", fontWeight: "800" }}
-        >
-          {" "}
-          MBA Admission
-        </Typography>
-      </Grid>
+      <Heading title=" MBA Admission" />
       <Grid xs={12} sm={12} md={4}>
-        <InputComponent
+        <EditText
           label="Name : "
           placeholder="Student &#40; As Per HSC &#41;"
           type="text"
         />
-        <InputComponent placeholder="Mother Name " type="text" />
-        <InputComponent label="Date of Birth :" placeholder="" type="date" />
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          sx={{ m: 2, mt: 4 }}
-        >
-          <Typography minWidth="150px" variant="body1">
-            Gender:
-          </Typography>
-          <Select
-            defaultValue="0"
-            sx={{
-              width: "350px",
-              "--Select-minHeight": "40px",
-              "--Select-radius": "24px",
-              backgroundColor: "#EFEDEE",
-              border: "none",
-              "--Select-paddingInline": "26px",
-            }}
-          >
-            <Option value="0">Male</Option>
-            <Option value="1">Female</Option>
-          </Select>
-        </Stack>
-        <InputComponent
+        <EditText placeholder="Mother Name " type="text" />
+        <EditText label="Date of Birth :" placeholder="" type="date" />
+        <InputSelect title="Gender" selectOption={["male", "female"]} />
+        <EditText
           label="Aadharcard Number No :"
           placeholder="2222 1111 2222"
           type="text"
         />
-        <InputComponent
+        <EditText
           label="Email Id :"
           placeholder="abced12@gmail.com"
           type="email"
         />
-        <InputComponent
-          label="Contact No :"
-          placeholder="student"
-          type="number"
+        <EditText label="Contact No :" placeholder="student" type="number" />
+        <EditText label="" placeholder="parent" type="number" />
+        <EditText label="" placeholder="guardian" type="number" />
+        <EditText label="permanent Address :" isTextArea={true} />
+        <EditText label="city :" placeholder="Rajkot" type="text" />
+        <EditText label="District :" placeholder="Rajkot" type="text" />
+        <EditText label="Pincode :" placeholder="304045" type="number" />
+        <InputSelect
+          title="Category"
+          selectOption={["GENERAL", "SEBC", "SC", "ST"]}
         />
-        <InputComponent label="" placeholder="parent" type="number" />
-        <InputComponent label="" placeholder="guardian" type="number" />
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          sx={{ m: 2, mt: 4 }}
-        >
-          <Typography minWidth="150px" variant="body1">
-            permanent Address :
-          </Typography>
-          <Textarea
-            sx={{
-              width: "350px",
-              "--Select-minHeight": "40px",
-              "--Select-radius": "24px",
-              backgroundColor: "#EFEDEE",
-              border: "none",
-              "--Select-paddingInline": "26px",
-            }}
-            minRows={4}
-          ></Textarea>
-        </Stack>
-        <InputComponent label="city :" placeholder="Rajkot" type="text" />
-        <InputComponent label="District :" placeholder="Rajkot" type="text" />
-        <InputComponent label="Pincode :" placeholder="304045" type="number" />
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          sx={{ m: 2, mt: 4 }}
-        >
-          <Typography minWidth="150px" variant="body1">
-            Category:
-          </Typography>
-          <Select
-            defaultValue="0"
-            sx={{
-              width: "350px",
-              "--Select-minHeight": "40px",
-              "--Select-radius": "24px",
-              backgroundColor: "#EFEDEE",
-              border: "none",
-              "--Select-paddingInline": "26px",
-            }}
-          >
-            <Option value="0">Open</Option>
-            <Option value="1">OBC</Option>
-          </Select>
-        </Stack>
-        <InputComponent label="Blood Group :" placeholder="A+" type="text" />
+        <EditText label="Blood Group :" placeholder="A+" type="text" />
       </Grid>
       <Grid xs={12} sm={12} md={4} border="2px solid #3e445f">
-        <InputComponent
-          label="Graduation :"
-          placeholder="Marvadi"
-          type="text"
-        />
-        <InputComponent
+        <EditText label="Graduation :" placeholder="Marvadi" type="text" />
+        <EditText
           label="Graduation per :"
           placeholder="Gujrat board"
           type="text"
         />
-        <InputComponent
+        <EditText
           label="Graduation institute Name :"
           placeholder="Marvadi"
           type="text"
         />
-        <InputComponent
+        <EditText
           label="Graduation University Name :"
           placeholder="Marvadi"
           type="text"
         />
-        <InputComponent label="Seat No :" placeholder="1234" type="text" />
-        <InputComponent
-          label="Year of Passing"
-          placeholder="2021"
-          type="number"
-        />
-        <InputComponent label="Grades :" placeholder="B+" type="text" />
-        <InputComponent
+        <EditText label="Seat No :" placeholder="1234" type="text" />
+        <EditText label="Year of Passing" placeholder="2021" type="number" />
+        <EditText label="Grades :" placeholder="B+" type="text" />
+        <EditText
           label="CAT/MAT/CAMT/ATMS Roll NO :"
           placeholder="2300"
           type="number"
         />
-        <InputComponent
+        <EditText
           label="CAT/MAT/CAMT/ATMS Marks :"
           placeholder="720"
           type="number"
         />
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          sx={{ m: 2, mt: 4 }}
-        >
-          <Typography minWidth="150px" variant="body1">
-            Admission Quota :
-          </Typography>
-          <Select
-            defaultValue="0"
-            sx={{
-              width: "350px",
-              "--Select-minHeight": "40px",
-              "--Select-radius": "24px",
-              backgroundColor: "#EFEDEE",
-              border: "none",
-              "--Select-paddingInline": "26px",
-            }}
-          >
-            <Option value="0">MANAGEMENT </Option>
-            <Option value="1">ENGINEERING</Option>
-          </Select>
-        </Stack>
-        <InputComponent
+        <InputSelect
+          title="Admission Quota"
+          selectOption={["MANAGEMENT", "ENGINEERING", "MEDICAL"]}
+        />
+        <EditText
           label="ACPC Marit No &#40; If Applicable &#41; :"
           placeholder="B.VOC"
           type="text"
         />
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          sx={{ m: 2, mt: 4 }}
-        >
-          <Typography minWidth="150px" variant="body1">
-            Student Of Online Admission ACPC :
-          </Typography>
-          <Select
-            defaultValue="0"
-            sx={{
-              width: "350px",
-              "--Select-minHeight": "40px",
-              "--Select-radius": "24px",
-              backgroundColor: "#EFEDEE",
-              border: "none",
-              "--Select-paddingInline": "26px",
-            }}
-          >
-            <Option value="0">Yes </Option>
-            <Option value="1">No</Option>
-          </Select>
-        </Stack>
-        <InputComponent
+
+        <InputSelect
+          title="Student Of Online Admission ACPC "
+          selectOption={["yes", "no"]}
+        />
+
+        <EditText
           label="Name Of Institude ACPC :"
           placeholder="B.VOC"
           type="text"
         />
-        <Stack
-          direction="row"
-          alignItems="center"
-          spacing={2}
-          sx={{ m: 2, mt: 4 }}
-        >
-          <Typography minWidth="150px" variant="body1">
-            HSC Complete from Gujrat :
-          </Typography>
-          <Select
-            defaultValue="0"
-            sx={{
-              width: "350px",
-              "--Select-minHeight": "40px",
-              "--Select-radius": "24px",
-              backgroundColor: "#EFEDEE",
-              border: "none",
-              "--Select-paddingInline": "26px",
-            }}
-          >
-            <Option value="0">Yes </Option>
-            <Option value="1">No</Option>
-          </Select>
-        </Stack>
+
+        <InputSelect
+          title=" HSC Complete from Gujrat  "
+          selectOption={["yes", "no"]}
+        />
       </Grid>
       <Grid xs={12} sm={12} md={4}>
         <PhotoUpload />
@@ -304,13 +164,107 @@ const Home = () => {
         <UploadDocument title="Document 4" />
       </Grid>
       <Grid xs={12} sm={12} md={4}>
-        <UploadDocument title="Document 5" />
+        <UploadDocument title="Document 5 " />
       </Grid>
       <Grid xs={12} sm={12} md={4}>
         <UploadDocument title="Document 6" />
       </Grid>
+      <Grid xs={12} sm={12} md={12}>
+        <Stack
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          flexDirection="row"
+        >
+          <Button
+            sx={{
+              color: "black",
+              borderRadius: "60px",
+              padding: "10px !important",
+              textTransform: "capitalize",
+              fontSize: "15px",
+              width: "220px",
+              border: "1px solid gray",
+              display: "flex",
+              gap: "10px",
+            }}
+            onClick={() => console.log("add new document")}
+          >
+            Add New Document <ArrowCircleRightIcon color="gray" />
+          </Button>
+          <Stack>
+            <Checkbox
+              color="neutral"
+              disabled={false}
+              label="Passport Photograph"
+              size="lg"
+              variant="outlined"
+            />
+          </Stack>
+        </Stack>
+      </Grid>
+      <Grid xs={12} sm={12} md={12}>
+        <Stack
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            flexDirection: "row !important",
+            alignItems: "flex-end",
+            gap: "20px",
+          }}
+        >
+          <Button
+            sx={{
+              color: "white",
+              borderRadius: "60px",
+              padding: "10px !important",
+              textTransform: "capitalize",
+              fontSize: "15px",
+              width: "130px",
+              backgroundColor: "#2d3878 !important",
+              display: "flex",
+              gap: "10px",
+            }}
+            onClick={() => console.log("add new document")}
+          >
+            <SaveIcon /> Save
+          </Button>
+          <Button
+            sx={{
+              color: "white",
+              borderRadius: "60px",
+              padding: "10px !important",
+              textTransform: "capitalize",
+              fontSize: "15px",
+              width: "130px",
+              backgroundColor: "#ff7d59",
+              display: "flex",
+              gap: "5px",
+            }}
+            onClick={() => console.log("add new document")}
+          >
+            <DeleteIcon /> Delete
+          </Button>
+          <Button
+            sx={{
+              color: "white",
+              borderRadius: "60px",
+              padding: "10px !important",
+              textTransform: "capitalize",
+              fontSize: "15px",
+              width: "130px",
+              display: "flex",
+              gap: "5px",
+              backgroundColor: "#2d3878 !important",
+            }}
+            onClick={() => console.log("add new document")}
+          >
+            <LocalPrintshopIcon /> Print
+          </Button>
+        </Stack>
+      </Grid>
     </Grid>
   );
-};
+}
 
 export default Home;

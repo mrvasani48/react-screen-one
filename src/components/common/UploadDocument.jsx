@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Button, Typography } from "@mui/material";
-import { Stack } from "@mui/joy";
+import { Button, Typography, Stack } from "@mui/joy";
 
-const UploadDocument = (props) => {
+function UploadDocument(props) {
   const [uploadedImg, setUploadedImg] = useState();
   const [isView, setIsView] = useState(false);
   const fileRef = useRef();
@@ -32,7 +31,7 @@ const UploadDocument = (props) => {
   };
   return (
     <Stack>
-      <Stack >
+      <Stack>
         <Stack
           display="flex"
           alignItems="center"
@@ -49,7 +48,7 @@ const UploadDocument = (props) => {
               sx={{ fontWeight: "400", fontSize: 28 }}
               htmlFor="upload-file text-dark"
             >
-             {props.title ? props.title :" Document" }
+              {props.title}
             </Typography>
             <Stack className="form-btn-main" margin="15px 0px">
               <input
@@ -97,8 +96,8 @@ const UploadDocument = (props) => {
                         fontWeight: "400",
                         fontSize: "15px",
                         textTransform: "capitalize",
-                        marginLeft:"0px !important"
-                      }}  
+                        marginLeft: "0px !important",
+                      }}
                       onClick={handleUploadFile}
                     >
                       Upload File
@@ -114,39 +113,43 @@ const UploadDocument = (props) => {
                     }}
                     onClick={(e) => {
                       e.preventDefault();
-                      setIsView(true);
+                      setIsView(!isView);
                     }}
                   >
-                    View
+                    {isView && uploadedImg?.name ? "close" : "View "}
                   </Button>
                 </Stack>
               </Stack>
             </Stack>
 
             <Typography fontWeight="200" fontSize="20px" marginLeft="30px">
-              {uploadedImg ? uploadedImg.name : ""}
+              {uploadedImg ? uploadedImg?.name : ""}
             </Typography>
           </form>
         </Stack>
       </Stack>
 
-        <Stack
-          className="view-img"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          sx={{
-            marginTop: "30px",
-            width: "100%",
-            borderRadius: "20px",
-          }}
-        >
-          {isView && uploadedImg && (
-            <img src={URL.createObjectURL(uploadedImg)} alt="uploaded img" />
-          )}
-        </Stack>
+      <Stack
+        className="view-img"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        sx={{
+          marginTop: "30px",
+          width: "100%",
+          borderRadius: "20px",
+        }}
+      >
+        {isView && uploadedImg && (
+          <img
+            src={URL.createObjectURL(uploadedImg)}
+            alt="uploaded img"
+            style={{ maxWidth: "550px", maxHeight: "280px" }}
+          />
+        )}
+      </Stack>
     </Stack>
   );
-};
+}
 
 export default UploadDocument;
