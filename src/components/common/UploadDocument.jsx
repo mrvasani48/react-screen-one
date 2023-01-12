@@ -38,9 +38,9 @@ function UploadDocument(props) {
           justifyContent="center"
           marginTop="20px"
           border="2px solid gray"
-          padding="28px"
+          padding="25px"
           borderRadius="30px"
-          minWidth="500px"
+          minWidth="390px"
         >
           <form className="form">
             <Typography

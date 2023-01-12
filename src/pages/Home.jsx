@@ -16,7 +16,7 @@ function Home() {
   return (
     <Grid container={true} margin="30px" spacing="40px">
       <Heading title=" MBA Admission" />
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <EditText
           label="Name : "
           placeholder="Student &#40; As Per HSC &#41;"
@@ -48,7 +48,7 @@ function Home() {
         />
         <EditText label="Blood Group :" placeholder="A+" type="text" />
       </Grid>
-      <Grid xs={12} sm={12} md={4} border="2px solid #3e445f">
+      <Grid xs={12} sm={12} md={6} lg={4} border="2px solid #3e445f">
         <EditText label="Graduation :" placeholder="Marvadi" type="text" />
         <EditText
           label="Graduation per :"
@@ -104,7 +104,7 @@ function Home() {
           selectOption={["yes", "no"]}
         />
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <PhotoUpload />
       </Grid>
       <Grid xs={12} sm={12} md={12}>
@@ -142,31 +142,31 @@ function Home() {
           &#41; Format Maximum Size = 5 Mb
         </Typography>
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <UploadDocument title="10th Mark Sheet" />
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <UploadDocument title="12th Mark Sheet" />
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <UploadDocument title="School Leaving Certificate" />
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <UploadDocument title="Document 1" />
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <UploadDocument title="Document 2" />
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <UploadDocument title="Document 3" />
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <UploadDocument title="Document 4" />
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <UploadDocument title="Document 5 " />
       </Grid>
-      <Grid xs={12} sm={12} md={4}>
+      <Grid xs={12} sm={12} md={6} lg={4}>
         <UploadDocument title="Document 6" />
       </Grid>
       <Grid xs={12} sm={12} md={12}>

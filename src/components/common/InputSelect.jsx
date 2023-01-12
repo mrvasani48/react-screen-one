@@ -4,12 +4,12 @@ import { Grid, Typography, Select, Option } from "@mui/joy";
 function InputSelect({ title, selectOption }) {
   return (
     <Grid container  padding="10px">
-      <Grid xs={4}>
+      <Grid xs={4} sm={4} md={4} lg={4}>
         <Typography component="p" textAlign="end">
           {title}:
         </Typography>
       </Grid>
-      <Grid xs={8}>
+      <Grid xs={8}  sm={7} md={7} lg={7}>
         <Select
           placeholder={selectOption[0]}
           sx={{

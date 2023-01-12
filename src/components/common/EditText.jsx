@@ -3,13 +3,13 @@ import React from "react";
 
 function EditText(props) {
   return (
-    <Grid container padding="10px">
-      <Grid xs={4}>
-        <Typography component="p" minWidth="150px" textAlign="end">
+    <Grid container  spacing={2}>
+      <Grid xs={4} sm={4} md={4} lg={4}>
+        <Typography component="p" textAlign="end" wordBreak="break-word">
           {props.label && props.label}
         </Typography>
       </Grid>
-      <Grid xs={8}>
+      <Grid xs={8}  sm={7} md={7} lg={7}>
         {props?.isTextArea ? (
           <Textarea
             sx={{

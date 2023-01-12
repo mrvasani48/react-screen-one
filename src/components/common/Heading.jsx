@@ -2,7 +2,7 @@ import React from "react";
 import { Grid, Typography } from "@mui/joy";
 function Heading({ title }) {
   return (
-    <Grid xs={12} sm={12}>
+    <Grid xs={12} sm={12} md={12}>
       <Typography
         variant="p"
         component="p"
